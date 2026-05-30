@@ -7,7 +7,7 @@
   <meta name="description" content="Dr. Asna Zehra Naqvi — internationally trained Senior Consultant in Obstetrics & Gynaecology at Apollomedics Super Speciality Hospitals, Lucknow. Specialist in high-risk pregnancy, laparoscopic surgery & infertility/IVF." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -36,8 +36,7 @@
         <a href="book-appointment.html" class="btn btn--primary"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a>
       </div>
       <div class="hero-photo">
-        <!-- Replace with Dr. Naqvi's licensed headshot -->
-        <div class="photo-placeholder" role="img" aria-label="Photograph of Dr. Asna Zehra Naqvi">{{DOCTOR_PHOTO}}<br>Doctor Photo</div>
+        <img src="assets/doctor.png" alt="Dr. Asna Zehra Naqvi, Senior Consultant in Obstetrics and Gynaecology" />
       </div>
     </div>
   </section>
@@ -47,7 +46,7 @@
     <div class="container">
       <div class="about-grid">
         <div>
-          <div class="photo-placeholder" role="img" aria-label="Dr. Asna Zehra Naqvi at work">{{DOCTOR_PHOTO}}<br>About Photo</div>
+          <img src="assets/about-home.png" alt="Dr. Asna Zehra Naqvi in surgical scrubs" class="about-photo" />
         </div>
         <div>
           <span class="section-head eyebrow" style="display:block;text-align:left;">Know Your Doctor</span>
@@ -80,32 +79,103 @@
         <h2>Comprehensive Care for Every Stage of Womanhood</h2>
         <p>From pregnancy and childbirth to advanced gynaecological surgery and fertility care.</p>
       </div>
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-baby"></i></div>
-          <h3>Obstetrics</h3>
-          <p>High-risk pregnancy care, painless delivery and complete maternity support.</p>
-          <a class="card-link" href="services/high-risk-pregnancy.html">Learn more →</a>
+      <div class="svc-tabs" id="svc-tabs">
+        <div class="svc-tablist" role="tablist" aria-label="Specialised treatments">
+          <button class="svc-tab is-active" role="tab" aria-selected="true" id="svc-t1" aria-controls="svc-p1" data-id="1"><i class="fa-solid fa-baby-carriage"></i><span>High-Risk Pregnancy</span></button>
+          <button class="svc-tab" role="tab" aria-selected="false" id="svc-t2" aria-controls="svc-p2" data-id="2"><i class="fa-solid fa-heart-pulse"></i><span>Painless Normal Delivery</span></button>
+          <button class="svc-tab" role="tab" aria-selected="false" id="svc-t3" aria-controls="svc-p3" data-id="3"><i class="fa-solid fa-user-nurse"></i><span>Cesarean (C-Section)</span></button>
+          <button class="svc-tab" role="tab" aria-selected="false" id="svc-t4" aria-controls="svc-p4" data-id="4"><i class="fa-solid fa-user-doctor"></i><span>Laparoscopic Surgery</span></button>
+          <button class="svc-tab" role="tab" aria-selected="false" id="svc-t5" aria-controls="svc-p5" data-id="5"><i class="fa-solid fa-dna"></i><span>Infertility / IVF</span></button>
+          <button class="svc-tab" role="tab" aria-selected="false" id="svc-t6" aria-controls="svc-p6" data-id="6"><i class="fa-solid fa-venus"></i><span>PCOS &amp; Irregular Periods</span></button>
+          <button class="svc-tab" role="tab" aria-selected="false" id="svc-t7" aria-controls="svc-p7" data-id="7"><i class="fa-solid fa-circle-dot"></i><span>Ovarian Cyst Treatment</span></button>
+          <button class="svc-tab" role="tab" aria-selected="false" id="svc-t8" aria-controls="svc-p8" data-id="8"><i class="fa-solid fa-spa"></i><span>Menopausal Health</span></button>
+          <button class="svc-tab" role="tab" aria-selected="false" id="svc-t9" aria-controls="svc-p9" data-id="9"><i class="fa-solid fa-child-dress"></i><span>Adolescent Health</span></button>
         </div>
-        <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-venus"></i></div>
-          <h3>Gynaecology</h3>
-          <p>PCOS, irregular periods, ovarian cysts and routine women's health checks.</p>
-          <a class="card-link" href="services/pcos-irregular-periods.html">Learn more →</a>
-        </div>
-        <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-user-doctor"></i></div>
-          <h3>Laparoscopic Surgery</h3>
-          <p>Minimally invasive procedures with faster recovery and minimal scarring.</p>
-          <a class="card-link" href="services/laparoscopic-surgery.html">Learn more →</a>
-        </div>
-        <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-dna"></i></div>
-          <h3>Infertility / IVF</h3>
-          <p>Internationally trained fertility evaluation and reproductive medicine.</p>
-          <a class="card-link" href="services/infertility-ivf.html">Learn more →</a>
+        <div class="svc-panels">
+          <article class="svc-panel is-active" role="tabpanel" id="svc-p1" aria-labelledby="svc-t1" data-id="1" tabindex="0">
+            <div class="svc-panel-text">
+              <span class="svc-badge">Obstetrics</span>
+              <h3>High-Risk Pregnancy</h3>
+              <p>Specialised monitoring and management for complex and high-risk pregnancies, keeping mother and baby safe at every stage with close, expert supervision.</p>
+              <a class="btn btn--outline" href="services/high-risk-pregnancy.html">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="svc-media"><i class="fa-solid fa-baby-carriage" aria-hidden="true"></i><img src="assets/services/high-risk-pregnancy.jpg" alt="High-risk pregnancy care" onerror="this.remove()" /></div>
+          </article>
+          <article class="svc-panel" role="tabpanel" id="svc-p2" aria-labelledby="svc-t2" data-id="2" tabindex="0" hidden>
+            <div class="svc-panel-text">
+              <span class="svc-badge">Obstetrics</span>
+              <h3>Painless Normal Delivery</h3>
+              <p>Comfortable, supported natural childbirth with epidural pain relief and gentle, patient-led care from labour through to recovery.</p>
+              <a class="btn btn--outline" href="services/normal-delivery.html">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="svc-media"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i><img src="assets/services/normal-delivery.jpg" alt="Painless normal delivery" onerror="this.remove()" /></div>
+          </article>
+          <article class="svc-panel" role="tabpanel" id="svc-p3" aria-labelledby="svc-t3" data-id="3" tabindex="0" hidden>
+            <div class="svc-panel-text">
+              <span class="svc-badge">Obstetrics</span>
+              <h3>Cesarean (C-Section)</h3>
+              <p>Safe planned and emergency C-section deliveries with careful surgical technique and attentive aftercare for a smooth recovery.</p>
+              <a class="btn btn--outline" href="services/cesarean.html">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="svc-media"><i class="fa-solid fa-user-nurse" aria-hidden="true"></i><img src="assets/services/cesarean.jpg" alt="Cesarean delivery care" onerror="this.remove()" /></div>
+          </article>
+          <article class="svc-panel" role="tabpanel" id="svc-p4" aria-labelledby="svc-t4" data-id="4" tabindex="0" hidden>
+            <div class="svc-panel-text">
+              <span class="svc-badge">Surgery</span>
+              <h3>Laparoscopic Surgery</h3>
+              <p>Minimally invasive keyhole procedures with smaller incisions, faster recovery and minimal scarring for a range of gynaecological conditions.</p>
+              <a class="btn btn--outline" href="services/laparoscopic-surgery.html">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="svc-media"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i><img src="assets/services/laparoscopic-surgery.jpg" alt="Laparoscopic surgery" onerror="this.remove()" /></div>
+          </article>
+          <article class="svc-panel" role="tabpanel" id="svc-p5" aria-labelledby="svc-t5" data-id="5" tabindex="0" hidden>
+            <div class="svc-panel-text">
+              <span class="svc-badge">Fertility</span>
+              <h3>Infertility / IVF</h3>
+              <p>Internationally trained fertility evaluation and reproductive medicine, tailored to your individual journey to parenthood.</p>
+              <a class="btn btn--outline" href="services/infertility-ivf.html">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="svc-media"><i class="fa-solid fa-dna" aria-hidden="true"></i><img src="assets/services/infertility-ivf.jpg" alt="Infertility and IVF care" onerror="this.remove()" /></div>
+          </article>
+          <article class="svc-panel" role="tabpanel" id="svc-p6" aria-labelledby="svc-t6" data-id="6" tabindex="0" hidden>
+            <div class="svc-panel-text">
+              <span class="svc-badge">Gynaecology</span>
+              <h3>PCOS &amp; Irregular Periods</h3>
+              <p>Diagnosis and long-term management of PCOS and menstrual irregularities for lasting hormonal balance and wellbeing.</p>
+              <a class="btn btn--outline" href="services/pcos-irregular-periods.html">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="svc-media"><i class="fa-solid fa-venus" aria-hidden="true"></i><img src="assets/services/pcos-irregular-periods.jpg" alt="PCOS and irregular periods care" onerror="this.remove()" /></div>
+          </article>
+          <article class="svc-panel" role="tabpanel" id="svc-p7" aria-labelledby="svc-t7" data-id="7" tabindex="0" hidden>
+            <div class="svc-panel-text">
+              <span class="svc-badge">Gynaecology</span>
+              <h3>Ovarian Cyst Treatment</h3>
+              <p>Careful evaluation and medical or surgical treatment of ovarian cysts, with a plan chosen to fit your needs and comfort.</p>
+              <a class="btn btn--outline" href="services/ovarian-cyst.html">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="svc-media"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i><img src="assets/services/ovarian-cyst.jpg" alt="Ovarian cyst treatment" onerror="this.remove()" /></div>
+          </article>
+          <article class="svc-panel" role="tabpanel" id="svc-p8" aria-labelledby="svc-t8" data-id="8" tabindex="0" hidden>
+            <div class="svc-panel-text">
+              <span class="svc-badge">Gynaecology</span>
+              <h3>Menopausal Health</h3>
+              <p>Symptom relief and hormonal health support to help you move through menopause with confidence and comfort.</p>
+              <a class="btn btn--outline" href="services/menopausal-health.html">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="svc-media"><i class="fa-solid fa-spa" aria-hidden="true"></i><img src="assets/services/menopausal-health.jpg" alt="Menopausal health care" onerror="this.remove()" /></div>
+          </article>
+          <article class="svc-panel" role="tabpanel" id="svc-p9" aria-labelledby="svc-t9" data-id="9" tabindex="0" hidden>
+            <div class="svc-panel-text">
+              <span class="svc-badge">Gynaecology</span>
+              <h3>Adolescent Health</h3>
+              <p>Sensitive gynaecological care and guidance for teenage girls, in a comfortable, reassuring and confidential setting.</p>
+              <a class="btn btn--outline" href="services/adolescent-health.html">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="svc-media"><i class="fa-solid fa-child-dress" aria-hidden="true"></i><img src="assets/services/adolescent-health.jpg" alt="Adolescent health care" onerror="this.remove()" /></div>
+          </article>
         </div>
       </div>
+      <p style="text-align:center;margin-top:30px;"><a class="btn btn--primary" href="services.html">View all services <i class="fa-solid fa-arrow-right"></i></a></p>
     </div>
   </section>
 
@@ -179,46 +249,64 @@
         <span class="eyebrow">Patient Stories</span>
         <h2>What Our Patients Say</h2>
       </div>
-      <div class="carousel">
-        <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
-        <div class="carousel-track">
-          <div class="slides">
-            <div class="slide">
-              <div class="testimonial">
-                <div class="stars">★★★★★</div>
-                <p class="quote clamped">Dr. Naqvi is extremely polite and knowledgeable. She listened patiently to all my concerns during my pregnancy and never rushed a single appointment. I felt completely safe under her care.</p>
-                <button class="read-toggle">Read More</button>
-                <div class="author">— Sana P.</div>
-              </div>
-            </div>
-            <div class="slide">
-              <div class="testimonial">
-                <div class="stars">★★★★★</div>
-                <p class="quote clamped">A truly humble and caring doctor. She explained my treatment options clearly and made me feel comfortable throughout my laparoscopic surgery. Recovery was smooth and quick.</p>
-                <button class="read-toggle">Read More</button>
-                <div class="author">— Ritu M.</div>
-              </div>
-            </div>
-            <div class="slide">
-              <div class="testimonial">
-                <div class="stars">★★★★★</div>
-                <p class="quote clamped">After years of trying, Dr. Naqvi guided us through our fertility journey with patience and expertise. We are forever grateful for her support and dedication.</p>
-                <button class="read-toggle">Read More</button>
-                <div class="author">— Priya &amp; Aamir</div>
-              </div>
-            </div>
-            <div class="slide">
-              <div class="testimonial">
-                <div class="stars">★★★★★</div>
-                <p class="quote clamped">She gives you genuine time to explain everything and answers every question without hurry. Highly recommend her for any women's health concern in Lucknow.</p>
-                <button class="read-toggle">Read More</button>
-                <div class="author">— Neha S.</div>
-              </div>
-            </div>
+      <div class="tcols" id="tcols">
+        <div class="tcol">
+          <div class="tcol-track" style="--dur:38s">
+            <figure class="tcard">
+              <div class="tcard-stars">★★★★★</div>
+              <blockquote>Dr. Naqvi is extremely polite and knowledgeable. She listened patiently to all my concerns during my pregnancy and never rushed a single appointment. I felt completely safe under her care.</blockquote>
+              <figcaption class="tcard-author"><span class="tcard-avatar" aria-hidden="true">SP</span><span class="tcard-name">Sana P.</span></figcaption>
+            </figure>
+            <figure class="tcard">
+              <div class="tcard-stars">★★★★★</div>
+              <blockquote>A truly humble and caring doctor. She explained my treatment options clearly and made me feel comfortable throughout my laparoscopic surgery. Recovery was smooth and quick.</blockquote>
+              <figcaption class="tcard-author"><span class="tcard-avatar" aria-hidden="true">RM</span><span class="tcard-name">Ritu M.</span></figcaption>
+            </figure>
+            <figure class="tcard">
+              <div class="tcard-stars">★★★★★</div>
+              <blockquote>My pregnancy was high-risk, but Dr. Naqvi monitored every detail and reassured us at each visit. Our baby arrived safely and we cannot thank her enough.</blockquote>
+              <figcaption class="tcard-author"><span class="tcard-avatar" aria-hidden="true">FR</span><span class="tcard-name">Fatima R.</span></figcaption>
+            </figure>
           </div>
         </div>
-        <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
-        <div class="carousel-dots" role="tablist" aria-label="Testimonial navigation"></div>
+        <div class="tcol tcol--md">
+          <div class="tcol-track" style="--dur:48s">
+            <figure class="tcard">
+              <div class="tcard-stars">★★★★★</div>
+              <blockquote>After years of trying, Dr. Naqvi guided us through our fertility journey with patience and expertise. We are forever grateful for her support and dedication.</blockquote>
+              <figcaption class="tcard-author"><span class="tcard-avatar" aria-hidden="true">PA</span><span class="tcard-name">Priya &amp; Aamir</span></figcaption>
+            </figure>
+            <figure class="tcard">
+              <div class="tcard-stars">★★★★★</div>
+              <blockquote>After struggling with PCOS for years, her clear plan finally brought my cycles back to normal. I feel like myself again and my energy is back.</blockquote>
+              <figcaption class="tcard-author"><span class="tcard-avatar" aria-hidden="true">AT</span><span class="tcard-name">Anjali T.</span></figcaption>
+            </figure>
+            <figure class="tcard">
+              <div class="tcard-stars">★★★★★</div>
+              <blockquote>I was terrified of labour, but the painless delivery she arranged made the whole experience calm and positive. I felt supported at every moment.</blockquote>
+              <figcaption class="tcard-author"><span class="tcard-avatar" aria-hidden="true">MK</span><span class="tcard-name">Megha K.</span></figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="tcol tcol--lg">
+          <div class="tcol-track" style="--dur:42s">
+            <figure class="tcard">
+              <div class="tcard-stars">★★★★★</div>
+              <blockquote>She gives you genuine time to explain everything and answers every question without hurry. Highly recommend her for any women's health concern in Lucknow.</blockquote>
+              <figcaption class="tcard-author"><span class="tcard-avatar" aria-hidden="true">NS</span><span class="tcard-name">Neha S.</span></figcaption>
+            </figure>
+            <figure class="tcard">
+              <div class="tcard-stars">★★★★★</div>
+              <blockquote>She helped me manage difficult menopause symptoms with patience and a treatment that actually worked. I finally feel comfortable in my own body again.</blockquote>
+              <figcaption class="tcard-author"><span class="tcard-avatar" aria-hidden="true">SD</span><span class="tcard-name">Sunita D.</span></figcaption>
+            </figure>
+            <figure class="tcard">
+              <div class="tcard-stars">★★★★★</div>
+              <blockquote>From my planned C-section to the follow-ups, the care was gentle and thorough. I always felt heard and never just like another patient.</blockquote>
+              <figcaption class="tcard-author"><span class="tcard-avatar" aria-hidden="true">KN</span><span class="tcard-name">Kavya N.</span></figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
       <p style="text-align:center;color:var(--muted);font-size:.82rem;margin-top:18px;">Reviews reflect common patient feedback themes. Replace with verified, consented testimonials before publishing.</p>
     </div>
@@ -250,7 +338,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false"><span>How do I book an appointment?</span><span class="icon"><i class="fa-solid fa-plus"></i></span></button>
-          <div class="faq-a"><div class="faq-a-inner">You can book through our <a href="book-appointment.html">appointment form</a>, call <a href="tel:{{PHONE}}">{{PHONE}}</a>, or message us on WhatsApp.</div></div>
+          <div class="faq-a"><div class="faq-a-inner">You can book through our <a href="book-appointment.html">appointment form</a>, call <a href="tel:+918429021972">+91 84290 21972</a>, or message us on WhatsApp.</div></div>
         </div>
       </div>
     </div>
@@ -290,7 +378,7 @@
         </div>
         <div class="form-success" style="display:none;color:var(--green);font-weight:600;margin:14px 0;"><i class="fa-solid fa-circle-check"></i> Thank you! Your request has been received. We'll contact you shortly.</div>
         <button type="submit" class="btn btn--primary" style="margin-top:8px;">Submit Request</button>
-        <p class="form-note">This form is for appointment requests only and does not store data. For emergencies call <a href="tel:{{PHONE}}">{{PHONE}}</a>.</p>
+        <p class="form-note">This form is for appointment requests only and does not store data. For emergencies call <a href="tel:+918429021972">+91 84290 21972</a>.</p>
       </form>
     </div>
   </section>

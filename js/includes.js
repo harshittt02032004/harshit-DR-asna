@@ -54,7 +54,7 @@
   const header = `
   <div class="emergency-strip">
     <i class="fa-solid fa-truck-medical"></i> 24/7 Emergency &amp; Maternity Care &mdash;
-    <a href="tel:{{PHONE}}">Call {{PHONE}}</a>
+    <a href="tel:+918429021972">Call +91 84290 21972</a>
   </div>
   <header class="site-header">
     <div class="container">
@@ -82,10 +82,9 @@
           <p style="color:#b8a9b3;">Senior Consultant, Obstetrics &amp; Gynaecology. Compassionate, internationally trained women's health care in Lucknow.</p>
           <div class="socials">
             <a href="https://www.apollo247.com/doctors/dr-asna-zehra-naqvi-5a77eea8-2715-47b3-a2c4-f0ff93fd33ca" target="_blank" rel="noopener" aria-label="Apollo profile"><i class="fa-solid fa-user-doctor"></i></a>
-            <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="{{FACEBOOK_URL}}" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://wa.me/{{WHATSAPP}}" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="tel:{{PHONE}}" aria-label="Call"><i class="fa-solid fa-phone"></i></a>
+            <a href="https://www.instagram.com/dr.asna_z_naqvi/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/918429021972" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="tel:+918429021972" aria-label="Call"><i class="fa-solid fa-phone"></i></a>
           </div>
         </div>
         <div>
@@ -103,10 +102,18 @@
         <div>
           <h4>Contact</h4>
           <ul class="foot-contact">
-            <li><i class="fa-solid fa-location-dot"></i> Apollomedics Super Speciality Hospitals, Sector B, LDA Colony, Kanpur Road, Lucknow, Uttar Pradesh 226012</li>
-            <li><i class="fa-solid fa-phone"></i> <a href="tel:{{PHONE}}">{{PHONE}}</a></li>
-            <li><i class="fa-solid fa-envelope"></i> <a href="mailto:{{EMAIL}}">{{EMAIL}}</a></li>
+            <li><i class="fa-solid fa-location-dot"></i> Apollo Medics Hospitals, Sector B, LDA Colony, Kanpur&nbsp;&ndash;&nbsp;Lucknow Road, Lucknow, Uttar Pradesh 226012</li>
+            <li><i class="fa-solid fa-phone"></i> <a href="tel:+918429021972">+91 84290 21972</a></li>
+            <li><i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/dr.asna_z_naqvi/" target="_blank" rel="noopener">@dr.asna_z_naqvi</a></li>
+            <li><i class="fa-solid fa-globe"></i> <a href="https://www.apollohospitals.com" target="_blank" rel="noopener">apollohospitals.com</a></li>
           </ul>
+          <div class="foot-map">
+            <iframe
+              title="Dr. Asna Zehra Naqvi location map"
+              src="https://www.google.com/maps?q=26.797939,80.9015426&z=16&output=embed"
+              width="100%" height="170" style="border:0;display:block;border-radius:12px;" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">&copy; <span id="year">2026</span> Dr. Asna Zehra Naqvi. All rights reserved.</div>
@@ -115,8 +122,8 @@
 
   const floating = `
   <div class="floating">
-    <a class="call" href="tel:{{PHONE}}" aria-label="Call now"><i class="fa-solid fa-phone"></i></a>
-    <a class="whatsapp" href="https://wa.me/{{WHATSAPP}}" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <a class="call" href="tel:+918429021972" aria-label="Call now"><i class="fa-solid fa-phone"></i></a>
+    <a class="whatsapp" href="https://wa.me/918429021972" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
   </div>`;
 
   const headerMount = document.getElementById("site-header-mount");

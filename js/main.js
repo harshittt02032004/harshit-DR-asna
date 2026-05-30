@@ -57,7 +57,47 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  /* ---------- Testimonials carousel ---------- */
+  /* ---------- Specialised treatments tabs ---------- */
+  const svcTabs = document.querySelector(".svc-tabs");
+  if (svcTabs) {
+    const tabs = Array.from(svcTabs.querySelectorAll(".svc-tab"));
+    const panels = Array.from(svcTabs.querySelectorAll(".svc-panel"));
+
+    function activate(id, focusTab) {
+      tabs.forEach((t) => {
+        const on = t.dataset.id === id;
+        t.classList.toggle("is-active", on);
+        t.setAttribute("aria-selected", String(on));
+        t.tabIndex = on ? 0 : -1;
+        if (on && focusTab) t.focus();
+      });
+      panels.forEach((p) => {
+        const on = p.dataset.id === id;
+        p.classList.toggle("is-active", on);
+        p.hidden = !on;
+      });
+    }
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener("click", () => activate(tab.dataset.id));
+      tab.addEventListener("keydown", (e) => {
+        let ni = -1;
+        if (e.key === "ArrowDown" || e.key === "ArrowRight") ni = (i + 1) % tabs.length;
+        if (e.key === "ArrowUp" || e.key === "ArrowLeft") ni = (i - 1 + tabs.length) % tabs.length;
+        if (ni > -1) { e.preventDefault(); activate(tabs[ni].dataset.id, true); }
+      });
+    });
+  }
+
+  /* ---------- Scrolling testimonial columns ---------- */
+  const tcols = document.querySelector(".tcols");
+  if (tcols && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    tcols.querySelectorAll(".tcol-track").forEach((track) => {
+      track.innerHTML += track.innerHTML;   /* duplicate cards for seamless loop */
+    });
+  }
+
+  /* ---------- Testimonials carousel (legacy, no-op if absent) ---------- */
   const carousel = document.querySelector(".carousel");
   if (carousel) {
     const slidesWrap = carousel.querySelector(".slides");
@@ -187,7 +227,15 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(revealSingles).forEach((el) => el.classList.add("reveal"));
   document.querySelectorAll(revealGroups).forEach((el) => el.classList.add("reveal-stagger"));
 
-  const animated = document.querySelectorAll(".reveal, .reveal-stagger");
+  /* Side blocks use pure-CSS scroll-driven animation where supported; only
+     fall back to the JS observer (with .js-anim) when it isn't. */
+  const supportsScrollAnim = window.CSS && CSS.supports && CSS.supports("animation-timeline: view()");
+  if (!supportsScrollAnim) {
+    document.querySelectorAll(".reveal-left, .reveal-right").forEach((el) => el.classList.add("js-anim"));
+  }
+  const animated = document.querySelectorAll(
+    ".reveal, .reveal-stagger" + (supportsScrollAnim ? "" : ", .reveal-left, .reveal-right")
+  );
   if ("IntersectionObserver" in window && animated.length) {
     const io = new IntersectionObserver(
       (entries, obs) => {
