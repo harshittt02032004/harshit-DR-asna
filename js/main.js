@@ -71,6 +71,30 @@ document.addEventListener("DOMContentLoaded", function () {
     if (nextBtn) nextBtn.addEventListener("click", () => reelsTrack.scrollBy({ left: stepBy(), behavior: "smooth" }));
   }
 
+  /* ---------- Stats band count-up ---------- */
+  const statNums = document.querySelectorAll(".stat-num[data-count]");
+  if (statNums.length && "IntersectionObserver" in window) {
+    const countUp = (el) => {
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || "";
+      const dur = 1400, t0 = performance.now();
+      const step = (now) => {
+        const p = Math.min(1, (now - t0) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = target + suffix;
+      };
+      requestAnimationFrame(step);
+    };
+    const statObs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { countUp(e.target); statObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.4 });
+    statNums.forEach((el) => statObs.observe(el));
+  }
+
   /* ---------- Specialised treatments tabs ---------- */
   const svcTabs = document.querySelector(".svc-tabs");
   if (svcTabs) {
