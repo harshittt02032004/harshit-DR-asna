@@ -22,7 +22,6 @@
     { href: "about.html", label: "About Doctor", key: "about" },
     { href: "services.html", label: "Services", key: "services" },
     { href: "gallery.html", label: "Gallery", key: "gallery" },
-    { href: "blog.html", label: "Blog", key: "blog" },
     { href: "contact.html", label: "Contact", key: "contact" },
   ];
 
@@ -59,15 +58,16 @@
   <header class="site-header">
     <div class="container">
       <a class="logo" href="${p}index.html" aria-label="Dr. Asna Zehra Naqvi home">
-        <span class="logo-icon"><i class="fa-solid fa-stethoscope"></i></span>
-        <span class="logo-text">
+        <img src="${p}assets/logo.png?v=2" alt="Dr. Asna Zehra Naqvi — Obstetrics &amp; Gynaecology" class="site-logo"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <span class="logo-text" style="display:none;">
           <span class="logo-name">Dr. Asna Zehra Naqvi</span>
           <span class="logo-tag">Senior Consultant, Obstetrics &amp; Gynaecology</span>
         </span>
       </a>
       <nav class="main-nav" aria-label="Primary"><ul>${navLinks}</ul></nav>
       <div class="header-cta">
-        <a href="${p}book-appointment.html" class="btn btn--primary">Book Appointment</a>
+        <a href="https://www.apollo247.com/doctors/dr-asna-zehra-naqvi-5a77eea8-2715-47b3-a2c4-f0ff93fd33ca" target="_blank" rel="noopener" class="btn btn--primary">Book Appointment</a>
         <button class="hamburger" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
       </div>
     </div>
@@ -94,9 +94,8 @@
             <li><a href="${p}about.html">About Doctor</a></li>
             <li><a href="${p}services.html">Services</a></li>
             <li><a href="${p}gallery.html">Gallery</a></li>
-            <li><a href="${p}blog.html">Blog</a></li>
             <li><a href="${p}contact.html">Contact</a></li>
-            <li><a href="${p}book-appointment.html">Book Appointment</a></li>
+            <li><a href="https://www.apollo247.com/doctors/dr-asna-zehra-naqvi-5a77eea8-2715-47b3-a2c4-f0ff93fd33ca" target="_blank" rel="noopener">Book Appointment</a></li>
           </ul>
         </div>
         <div>

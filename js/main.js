@@ -57,6 +57,120 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  /* ---------- Video slider arrows (horizontal scroll) ---------- */
+  const reelsTrack = document.getElementById("reels-track");
+  if (reelsTrack) {
+    const prevBtn = document.querySelector(".reels-prev");
+    const nextBtn = document.querySelector(".reels-next");
+    const stepBy = () => {
+      const card = reelsTrack.querySelector(".reel-card");
+      const cardW = card ? card.getBoundingClientRect().width + 20 : 255;
+      return Math.max(cardW, reelsTrack.clientWidth * 0.85);
+    };
+    if (prevBtn) prevBtn.addEventListener("click", () => reelsTrack.scrollBy({ left: -stepBy(), behavior: "smooth" }));
+    if (nextBtn) nextBtn.addEventListener("click", () => reelsTrack.scrollBy({ left: stepBy(), behavior: "smooth" }));
+
+    /* ---- Fullscreen Instagram-style viewer ---- */
+    const cards = Array.from(reelsTrack.querySelectorAll(".reel-card"));
+    const viewer = document.createElement("div");
+    viewer.className = "reels-viewer";
+    viewer.innerHTML =
+      '<button class="rv-close" aria-label="Close videos">&times;</button>' +
+      '<button class="rv-nav rv-up" aria-label="Previous video"><i class="fa-solid fa-chevron-up"></i></button>' +
+      '<div class="rv-feed"></div>' +
+      '<button class="rv-nav rv-down" aria-label="Next video"><i class="fa-solid fa-chevron-down"></i></button>';
+    document.body.appendChild(viewer);
+    const feed = viewer.querySelector(".rv-feed");
+    let items = [];
+
+    const sources = () => cards
+      .filter((c) => {
+        if (!c.dataset.src || c.classList.contains("is-empty")) return false;
+        const v = c.querySelector(".reel-video");
+        if (v && (v.error || v.networkState === 3)) return false; // failed / no source
+        return true;
+      })
+      .map((c) => c.dataset.src);
+
+    const centerIndex = () => {
+      if (!feed.clientHeight) return 0;
+      return Math.max(0, Math.min(items.length - 1, Math.round(feed.scrollTop / feed.clientHeight)));
+    };
+    const playCentered = () => {
+      const i = centerIndex();
+      items.forEach((it, idx) => {
+        const v = it.querySelector("video");
+        if (!v) return;
+        if (idx === i) { v.play().catch(() => {}); } else { v.pause(); v.currentTime = 0; }
+      });
+    };
+    const goTo = (i) => {
+      if (i < 0 || i >= items.length) return;
+      // try native smooth; falls back to the instant set on engines that ignore it
+      try { feed.scrollTo({ top: i * feed.clientHeight, behavior: "smooth" }); } catch (e) {}
+      feed.scrollTop = i * feed.clientHeight;
+      setTimeout(playCentered, 80);
+    };
+
+    const open = (src) => {
+      const list = sources();
+      if (!list.length) return;
+      let pos = list.indexOf(src);
+      if (pos < 0) pos = 0;
+      feed.innerHTML = list
+        .map((s) => '<div class="rv-item"><video src="' + s + '" playsinline preload="metadata" loop></video><span class="rv-pause" aria-hidden="true"><i class="fa-solid fa-play"></i></span></div>')
+        .join("");
+      items = Array.from(feed.querySelectorAll(".rv-item"));
+      // tap a video to toggle play / pause; drop any that fail to load
+      feed.querySelectorAll("video").forEach((v) => {
+        v.addEventListener("click", () => {
+          if (v.paused) { v.play().catch(() => {}); } else { v.pause(); }
+        });
+        v.addEventListener("play", () => v.parentElement.classList.remove("paused"));
+        v.addEventListener("pause", () => v.parentElement.classList.add("paused"));
+        v.addEventListener("error", () => {
+          const it = v.closest(".rv-item");
+          if (it) { it.remove(); items = Array.from(feed.querySelectorAll(".rv-item")); }
+        });
+      });
+      viewer.classList.add("open");
+      document.body.style.overflow = "hidden";
+      requestAnimationFrame(() => {
+        feed.scrollTop = pos * feed.clientHeight;
+        setTimeout(playCentered, 80);
+      });
+    };
+    const close = () => {
+      viewer.classList.remove("open");
+      document.body.style.overflow = "";
+      feed.querySelectorAll("video").forEach((v) => v.pause());
+      feed.innerHTML = "";
+      items = [];
+    };
+
+    cards.forEach((c) => {
+      c.addEventListener("click", () => {
+        if (c.classList.contains("is-empty") || !c.dataset.src) return;
+        open(c.dataset.src);
+      });
+    });
+    viewer.querySelector(".rv-close").addEventListener("click", close);
+    viewer.querySelector(".rv-up").addEventListener("click", () => goTo(centerIndex() - 1));
+    viewer.querySelector(".rv-down").addEventListener("click", () => goTo(centerIndex() + 1));
+
+    let scrollTimer;
+    feed.addEventListener("scroll", () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(playCentered, 110);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (!viewer.classList.contains("open")) return;
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowDown") { e.preventDefault(); goTo(centerIndex() + 1); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); goTo(centerIndex() - 1); }
+    });
+  }
+
   /* ---------- Specialised treatments tabs ---------- */
   const svcTabs = document.querySelector(".svc-tabs");
   if (svcTabs) {
