@@ -718,18 +718,7 @@ p { margin: 0 0 1rem; }
 .reels-track::-webkit-scrollbar { height: 8px; }
 .reels-track::-webkit-scrollbar-track { background: transparent; }
 .reels-track::-webkit-scrollbar-thumb { background: var(--soft-aqua); border-radius: 999px; }
-.reels-track .reel-card { flex: 0 0 auto; width: 236px; scroll-snap-align: start; cursor: pointer; }
-.reel-card.is-empty { cursor: default; }
-/* play overlay on thumbnails */
-.reel-play { position: absolute; inset: 0; z-index: 3; display: grid; place-items: center; pointer-events: none; }
-.reel-play i {
-  width: 56px; height: 56px; border-radius: 50%; color: #fff; font-size: 1.2rem;
-  display: grid; place-items: center; background: rgba(0, 0, 0, 0.35);
-  border: 2px solid rgba(255, 255, 255, 0.85); padding-left: 3px;
-  transition: transform .3s var(--ease-out), background .3s ease;
-}
-.reel-card:hover .reel-play i { transform: scale(1.14); background: rgba(11, 95, 102, 0.62); }
-.reel-card.is-empty .reel-play { display: none; }
+.reels-track .reel-card { flex: 0 0 auto; width: 236px; scroll-snap-align: start; }
 .reels-nav {
   position: absolute; top: 50%; transform: translateY(-50%); z-index: 6;
   width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--border);
@@ -776,53 +765,11 @@ p { margin: 0 0 1rem; }
 }
 .reel-fallback span { font-weight: 600; font-size: .95rem; letter-spacing: .02em; opacity: .95; }
 
-/* ===== Fullscreen reels viewer (Instagram-style) ===== */
-.reels-viewer { position: fixed; inset: 0; z-index: 9999; background: #000; display: none; }
-.reels-viewer.open { display: block; }
-.rv-feed {
-  height: 100%; width: 100%; overflow-y: auto;
-  scroll-snap-type: y mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none;
-  overscroll-behavior: contain; touch-action: pan-y;
-}
-.rv-feed::-webkit-scrollbar { display: none; }
-.rv-item {
-  height: 100%; width: 100%; scroll-snap-align: start; scroll-snap-stop: always;
-  display: flex; align-items: center; justify-content: center; position: relative;
-}
-.rv-item video {
-  max-width: 100%; max-height: 100%; width: auto; height: auto;   /* fit screen, keep ratio */
-  object-fit: contain; background: #000; display: block; cursor: pointer;
-}
-/* keep correct ratio even if a video enters native fullscreen */
-video:fullscreen { width: 100%; height: 100%; object-fit: contain; background: #000; }
-video:-webkit-full-screen { width: 100%; height: 100%; object-fit: contain; background: #000; }
-.rv-pause { position: absolute; inset: 0; display: none; place-items: center; pointer-events: none; z-index: 1; }
-.rv-item.paused .rv-pause { display: grid; }
-.rv-pause i {
-  width: 76px; height: 76px; border-radius: 50%; background: rgba(0, 0, 0, 0.42);
-  color: #fff; display: grid; place-items: center; font-size: 1.6rem; padding-left: 5px;
-  border: 2px solid rgba(255, 255, 255, 0.82);
-}
-.rv-close, .rv-nav {
-  position: fixed; z-index: 2; width: 50px; height: 50px; border-radius: 50%;
-  border: 0; background: rgba(255, 255, 255, 0.16); color: #fff;
-  display: grid; place-items: center; cursor: pointer;
-  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
-  transition: background .2s ease, transform .2s ease;
-}
-.rv-close:hover, .rv-nav:hover { background: rgba(255, 255, 255, 0.32); transform: scale(1.06); }
-.rv-close { top: 18px; right: 18px; font-size: 1.7rem; line-height: 1; }
-.rv-nav { right: 22px; font-size: 1.1rem; }
-.rv-up { top: calc(50% - 58px); }
-.rv-down { top: calc(50% + 8px); }
 @media (max-width: 600px) {
-  .rv-close { top: 12px; right: 12px; width: 44px; height: 44px; }
-  .rv-nav { right: 12px; width: 44px; height: 44px; }
   /* general mobile readability */
   .hero h1 { font-size: clamp(1.55rem, 7.5vw, 2rem); }
   .section-head h2 { font-size: clamp(1.4rem, 6.4vw, 1.9rem); }
   .hero .hero-title-bar { font-size: .92rem; }
-  .reels-track .reel-card { width: 80vw; max-width: 330px; }
 }
 
 @media (max-width: 600px) {
