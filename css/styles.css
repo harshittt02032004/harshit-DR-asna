@@ -643,7 +643,7 @@ p { margin: 0 0 1rem; }
   .dropdown {
     position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none;
     max-height: 0; overflow: hidden; padding: 0 0 0 14px; transition: max-height var(--transition);
-    border: 0;
+    border: 0; background: transparent; border-radius: 0; min-width: 0;
   }
   .dropdown::before { display: none; }
   .has-dropdown.open .dropdown { max-height: 600px; }
