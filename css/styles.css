@@ -56,7 +56,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
 }
 
 /* Smoother interactive feedback site-wide */
@@ -629,10 +628,12 @@ p { margin: 0 0 1rem; }
   .main-nav {
     position: fixed; inset: 0 0 0 auto; width: min(320px, 85vw);
     background: var(--navy); box-shadow: -10px 0 40px rgba(0,0,0,.25);
-    transform: translateX(100%); transition: transform var(--transition);
+    /* fade in/out — never slides off-screen, so no horizontal overflow / white strip */
+    opacity: 0; visibility: hidden; transform: translateX(0);
+    transition: opacity var(--transition), visibility var(--transition);
     padding: 80px 24px 24px; overflow-y: auto; z-index: 110;
   }
-  .main-nav.open { transform: translateX(0); }
+  .main-nav.open { opacity: 1; visibility: visible; }
   .main-nav ul { flex-direction: column; align-items: flex-start; gap: 4px; }
   .main-nav li { width: 100%; }
   .main-nav a { display: block; padding: 10px 0; width: 100%; color: #eaf5f5; }
